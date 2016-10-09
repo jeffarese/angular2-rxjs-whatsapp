@@ -28,7 +28,7 @@ export class UserService {
 
   login() {
     this.af.auth.login({
-      provider: AuthProviders.Facebook,
+      provider: AuthProviders.Google,
       method: AuthMethods.Popup
     });
   }

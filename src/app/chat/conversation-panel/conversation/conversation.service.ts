@@ -26,12 +26,14 @@ export class ConversationService {
     this.userService.userSource$.subscribe((user) => {
       if (user) {
         this.conversation$ = this.af.database.list('/conversations').map((conversations) => {
+          console.log(conversations);
           return conversations.map((conversation)=> {
             let messages = this.af.database.list(`messages/${conversation.$key}`);
             let senderId = Object.keys(conversation.members)[0];
             let receiverId = Object.keys(conversation.members)[1];
             let avatar = `https://api.adorable.io/avatars/40/${senderId}.png`;
-            return new Conversation(senderId, receiverId, avatar, conversation.$key, messages);
+            console.log(conversation);
+            //return new Conversation(senderId, receiverId, avatar, conversation.$key, messages);
           })
         });
       }
