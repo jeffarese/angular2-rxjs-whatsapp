@@ -1,0 +1,12 @@
+<div class="background"></div>
+<app-message-header *ngIf="selectedConversation" [avatar]="selectedConversation.avatar"></app-message-header>
+<div class="message-header-placeholder"></div>
+<div class="messages-container" #messagesContainer [scrollTop]="messagesContainer.scrollHeight">
+    <app-message [ngClass]="{self: selectedConversation.senderId == message.sender_id}"
+                 *ngFor="let message of (selectedConversation?.messages | async)"
+                 [message]="message">
+    </app-message>
+</div>
+<app-message-input *ngIf="selectedConversation">
+
+</app-message-input>

@@ -1,0 +1,38 @@
+:host {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #f5f1ee;
+	border-left: 1px solid rgba(0, 0, 0, .08);
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.input-container {
+
+}
+
+input {
+	width: calc(100% - 65px);
+	padding: 0 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	outline: none;
+	border: 0;
+	line-height: 20px;
+	height: 42px;
+}
+
+md-icon {
+	line-height: 42px;
+	height: 42px;
+	margin-left: 15px;
+	vertical-align: middle;
+	color: #fe8773;
+	cursor: pointer;
+	&:hover {
+		color: darken(#fe8773, 10%);
+	}
+}

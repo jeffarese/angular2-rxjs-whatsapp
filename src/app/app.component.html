@@ -1,0 +1,6 @@
+<app-toolbar></app-toolbar>
+
+<div *ngIf="!user" class="login-button-container">
+    <button (click)="login()" md-raised-button color="primary">Log in</button>
+</div>
+<app-chat [hidden]="!user"></app-chat>

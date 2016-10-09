@@ -1,0 +1,20 @@
+{
+  "rules": {
+		"conversations": {
+    	".read": "auth != null",
+    	".write": "auth != null && auth.isAdmin == true"
+  	},
+    "messages": {
+    	"$conv_id": {
+      	".read": "auth != null",
+        ".write": "auth != null"
+        //".read":  "root.child('conversations').child($conv_id).child('members').hasChild(''+auth.uid)",
+    		//".write": "root.child('conversations').child($conv_id).child('members').hasChild(newData.child('sender_id').val())",
+        //".validate": "newData.hasChildren(['owner'])",
+        //"owner":   { ".validate": "newData.val() == auth.uid"}
+        //"message": { ".validate": "newData.isString() && newData.val().length > 0"}
+        //"$other":  { ".validate": false }
+      }
+  	}
+  }
+}

@@ -1,0 +1,9 @@
+<div class="input-container">
+    <form (ngSubmit)="onSubmit(input.value); input.value=''">
+        <input #input
+               required
+               type="text"
+               placeholder="Write your message here">
+        <md-icon (click)="onSubmit(input.value); input.value=''" color="red">send</md-icon>
+    </form>
+</div>

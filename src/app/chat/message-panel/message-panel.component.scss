@@ -1,0 +1,33 @@
+:host {
+	display: block;
+	height: calc(100vh - 140px);
+	box-sizing: border-box;
+}
+.message-header-placeholder {
+	height: 56px;
+	width: 100%;
+}
+.background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-image: url('../../../assets/chat-background.png');
+	opacity: .06;
+}
+app-message {
+	clear: both;
+	float: left;
+	&.self {
+		float: right;
+		background-color: #ffdfd9;
+	}
+}
+.messages-container {
+	overflow-y: auto;
+	transform: translateZ(0);
+	padding: 0 15px 15px 15px;
+	height: calc(100% - 128px);
+	box-sizing: border-box;
+}

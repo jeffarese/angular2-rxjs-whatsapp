@@ -1,0 +1,45 @@
+md-toolbar {
+	color: white;
+	min-height: 48px;
+	box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+	.logo {
+		position: relative;
+		margin-right: 10px;
+		margin-left: 4px;
+		width: 42px;
+		height: 42px;
+		top: -1px;
+	}
+	.app-toolbar-filler {
+		flex: 1 1 auto;
+	}
+	h4 {
+		font-weight: normal;
+	}
+	.user-actions {
+		img {
+			border-radius: 50%;
+			width: 32px;
+			height: 32px;
+		}
+	}
+}
+.md-menu {
+	padding: 10px;
+}
+.menu-left,
+.menu-right {
+	float: left;
+	padding:  0 15px;
+	button {
+		float: right;
+	}
+}
+.menu-left {
+	img	 {
+		width: 56px;
+		height: 56px;
+		border-radius: 50%;
+	}
+
+}

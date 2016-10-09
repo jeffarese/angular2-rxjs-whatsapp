@@ -1,0 +1,23 @@
+:host {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 56px;
+	border-left: 1px solid rgba(0,0,0,.08);
+	background-color: #eee;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.message-header-avatar {
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 2px;
+	img {
+		border-radius: 50%;
+	}
+}
+span {
+	line-height:44px;
+}

@@ -1,0 +1,19 @@
+<md-toolbar color="primary">
+  <img class="logo" src="../../assets/whatsapp-xxl.png">
+  <h4>Whatsapp</h4>
+  <span class="app-toolbar-filler"></span>
+  <div *ngIf="user" class="user-actions">
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <img src="{{user.avatar}}">
+    </button>
+    <md-menu #menu="mdMenu" x-position="before" y-position="below">
+      <div class="menu-left">
+        <img src="{{user.avatar}}">
+      </div>
+      <div class="menu-right">
+        <p>{{user.email}}</p>
+        <button md-menu-item md-button (click)="signOut()" color="primary">Sign out</button>
+      </div>
+    </md-menu>
+  </div>
+</md-toolbar>

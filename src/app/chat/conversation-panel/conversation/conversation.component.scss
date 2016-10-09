@@ -1,0 +1,14 @@
+md-list-item {
+	cursor: pointer;
+	display: block;
+	transition: .1s background linear;
+	img {
+		display: block;
+	}
+	&:hover {
+		background-color: #f4f5f5;
+	}
+	&.active {
+		background-color: #e9ebeb;
+	}
+}
