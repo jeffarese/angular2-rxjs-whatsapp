@@ -24,7 +24,9 @@ export class ConversationPanelComponent implements OnInit {
 
 
   }
-
+  public createConversation(email: string) {
+    console.log(email);
+  }
   ngOnInit() {
   }
 
