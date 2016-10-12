@@ -45,4 +45,8 @@ export class UserService {
       }
     })
   }
+
+  public getUser(): User {
+    return this.user;
+  }
 }

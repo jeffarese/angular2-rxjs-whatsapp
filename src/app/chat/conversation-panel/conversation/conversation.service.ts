@@ -70,7 +70,10 @@ export class ConversationService {
   }
 
 
-  createConversation(email: string) {
-    this.af.database.object(`conversations/${email}`).set({});
+  createConversation(receiverId: string) {
+    console.log(`conversations/${this.userService.getUser().id}`);
+    this.af.database.object(`conversations/${this.userService.getUser().id}`).set({
+      receiverId: receiverId
+    });
   }
 }
