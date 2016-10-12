@@ -15,11 +15,12 @@ export class ConversationPanelComponent implements OnInit {
 
   constructor(private conversationService: ConversationService, private userService: UserService) {
     this.userService.userSource$.subscribe((user)=> {
-   /*   if (user) {
+      if (user) {
         this.conversationService.conversation$.subscribe((conversations) => {
+          console.log(conversations);
           this.conversations = conversations;
         });
-      }*/
+      }
     });
 
 

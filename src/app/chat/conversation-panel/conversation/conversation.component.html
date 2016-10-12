@@ -1,4 +1,5 @@
-<md-list-item [ngClass]="{active: selectedConversationId === conversation.id}" (click)="setConversation(conversation)">
-  <img md-list-avatar src="{{conversation.avatar}}" width="40">
-  <h3 md-line> Conversation {{conversation.id}} </h3>
+
+<md-list-item  (click)="setConversation(conversation)">
+  <img md-list-avatar src="{{(conversation.destinationUser | async)?.avatar}}" width="40">
+  <h3 md-line>{{(conversation.destinationUser | async)?.name}} </h3>
 </md-list-item>

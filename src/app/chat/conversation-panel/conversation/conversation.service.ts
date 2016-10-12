@@ -25,15 +25,15 @@ export class ConversationService {
   getConversationsList() {
     this.userService.userSource$.subscribe((user) => {
       if (user) {
-        this.conversation$ = this.af.database.list('/conversations').map((conversations) => {
-          console.log(conversations);
-          return conversations.map((conversation)=> {
-            return new Conversation(conversation.id, receiverId, avatar, conversation.$key, messages);
+        this.conversation$ = this.af.database.list(`/conversations/${user.id}`).map((conversations) => {
+          return conversations.map((conversation: any)=> {
+            return new Conversation(
+              this.af.database.object(`users/${conversation.receiverId}`),
+              this.af.database.list(`messages/${conversation.$key}`));
           })
         });
       }
     });
-
   }
 
   getConversation(conversation) {
@@ -48,11 +48,6 @@ export class ConversationService {
   subscribeToNewMessages() {
     this.newMessage$.subscribe((message)=> {
       let conversation: Conversation = this.selectedConversationData;
-      console.info('New message event');
-      console.info(`Text: ${message}`);
-      console.info(`Conversation Id: ${conversation.id}`);
-      console.info(`Sender: ${conversation.senderId}`);
-      console.info(`Receiver: ${conversation.receiverId}`);
       this.sendNewMessage(message, conversation)
     })
   }

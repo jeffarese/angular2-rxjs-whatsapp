@@ -14,9 +14,10 @@ export class ConversationComponent implements OnInit {
 
   @Input() conversation: Conversation;
   constructor(private conversationService: ConversationService) {
-    this.conversationService.selectedConversation$.subscribe((conversation: Conversation) => {
+    console.log(this.conversation);
+    /*this.conversationService.selectedConversation$.subscribe((conversation: Conversation) => {
       this.selectedConversationId = conversation.id;
-    })
+    });*/
   }
 
   ngOnInit() {
