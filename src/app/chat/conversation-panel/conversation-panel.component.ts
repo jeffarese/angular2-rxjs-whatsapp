@@ -14,13 +14,13 @@ export class ConversationPanelComponent implements OnInit {
   private selectedConversationId: string;
 
   constructor(private conversationService: ConversationService, private userService: UserService) {
-    this.userService.userSource$.subscribe((user)=> {
+/*    this.userService.userSource$.subscribe((user)=> {
       if (user) {
         this.conversationService.conversation$.subscribe((conversations) => {
           this.conversations = conversations;
         });
       }
-    });
+    });*/
 
 
   }
