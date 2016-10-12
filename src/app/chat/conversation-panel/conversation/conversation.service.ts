@@ -28,12 +28,7 @@ export class ConversationService {
         this.conversation$ = this.af.database.list('/conversations').map((conversations) => {
           console.log(conversations);
           return conversations.map((conversation)=> {
-            let messages = this.af.database.list(`messages/${conversation.$key}`);
-            let senderId = Object.keys(conversation.members)[0];
-            let receiverId = Object.keys(conversation.members)[1];
-            let avatar = `https://api.adorable.io/avatars/40/${senderId}.png`;
-            console.log(conversation);
-            //return new Conversation(senderId, receiverId, avatar, conversation.$key, messages);
+            return new Conversation(conversation.id, receiverId, avatar, conversation.$key, messages);
           })
         });
       }
@@ -61,6 +56,7 @@ export class ConversationService {
       this.sendNewMessage(message, conversation)
     })
   }
+
   sendNewMessage(message, conversation) {
     this.af.database.list(`messages/${conversation.id}`).push({
       sender_id: conversation.senderId,
@@ -71,9 +67,18 @@ export class ConversationService {
 
 
   createConversation(receiverId: string) {
-    console.log(`conversations/${this.userService.getUser().id}`);
-    this.af.database.object(`conversations/${this.userService.getUser().id}`).set({
+    let newConversation = this.af.database.list(`conversations/${this.userService.getUser().id}`);
+    newConversation.push({
+      senderId: this.userService.getUser().id,
       receiverId: receiverId
     });
+    newConversation.subscribe((data) => {
+      this.af.database.list(`users/${receiverId}/receivedConversations`).push({
+          senderId: this.userService.getUser().id,
+          conversationId: data[data.length - 1].$key
+        }
+      );
+    });
+
   }
 }

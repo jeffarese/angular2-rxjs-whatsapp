@@ -15,14 +15,20 @@ export class ConversationPanelComponent implements OnInit {
 
   constructor(private conversationService: ConversationService, private userService: UserService) {
     this.userService.userSource$.subscribe((user)=> {
-
+   /*   if (user) {
+        this.conversationService.conversation$.subscribe((conversations) => {
+          this.conversations = conversations;
+        });
+      }*/
     });
 
 
   }
+
   public createConversation(receiverId: string) {
     this.conversationService.createConversation(receiverId);
   }
+
   ngOnInit() {
   }
 
