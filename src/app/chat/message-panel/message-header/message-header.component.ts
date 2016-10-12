@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core/src/metadata/directives';
+import { User } from '../../../core/user/user';
 
 @Component({
   selector: 'app-message-header',
@@ -8,7 +9,7 @@ import { Input } from '@angular/core/src/metadata/directives';
 })
 export class MessageHeaderComponent implements OnInit {
 
-  @Input() avatar: string;
+  @Input() user: User;
   constructor() { }
 
   ngOnInit() {

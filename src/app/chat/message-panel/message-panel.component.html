@@ -1,5 +1,5 @@
 <div class="background"></div>
-<app-message-header *ngIf="selectedConversation" [avatar]="selectedConversation.avatar"></app-message-header>
+<app-message-header *ngIf="selectedConversation" [user]="selectedConversation.destinationUser"></app-message-header>
 <div class="message-header-placeholder"></div>
 <div class="messages-container" #messagesContainer [scrollTop]="messagesContainer.scrollHeight">
     <app-message [ngClass]="{self: selectedConversation.senderId == message.sender_id}"
