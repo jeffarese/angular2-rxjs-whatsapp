@@ -70,4 +70,7 @@ export class ConversationService {
   }
 
 
+  createConversation(email: string) {
+    this.af.database.object(`conversations/${email}`).set({});
+  }
 }

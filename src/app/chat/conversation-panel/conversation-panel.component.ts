@@ -25,6 +25,7 @@ export class ConversationPanelComponent implements OnInit {
 
   }
   public createConversation(email: string) {
+    this.conversationService.createConversation(email);
     console.log(email);
   }
   ngOnInit() {
