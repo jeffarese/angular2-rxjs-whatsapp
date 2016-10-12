@@ -54,10 +54,9 @@ export class ConversationService {
   }
 
   sendNewMessage(message, conversation) {
-    console.log(message);
-    console.log(conversation);
+    console.log(conversation.destinationUser.senderId);
     this.af.database.list(`messages/${conversation.id}`).push({
-      sender_id: conversation.senderId,
+      sender_id: conversation.destinationUser.senderId,
       created_at: new Date().getTime(),
       message: message
     });
