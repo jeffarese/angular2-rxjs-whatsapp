@@ -1,6 +1,8 @@
 import { User } from '../../../core/user/user';
 export class Conversation {
-  constructor(private _id: string, private _destinationUser: any, private _messages: any) {}
+  constructor(private _id: string, private _destinationUser: any, private _messages: any) {
+    console.log(this);
+  }
 
   get id(): string {
     return this._id;

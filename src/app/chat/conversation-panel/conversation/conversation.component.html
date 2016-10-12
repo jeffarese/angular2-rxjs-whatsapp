@@ -1,5 +1,4 @@
-
 <md-list-item  (click)="setConversation(conversation)">
-  <img md-list-avatar src="{{(conversation.destinationUser | async)?.avatar}}" width="40">
-  <h3 md-line>{{(conversation.destinationUser | async)?.name}} </h3>
+<img md-list-avatar src="{{conversation.destinationUser?.avatar}}" width="40">
+  <h3 md-line>{{conversation.destinationUser?.name}} </h3>
 </md-list-item>
