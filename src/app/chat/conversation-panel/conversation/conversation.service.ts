@@ -64,15 +64,20 @@ export class ConversationService {
 
 
   createConversation(receiverId: string) {
-    let newConversation = this.af.database.list(`conversations/${this.userService.getUser().id}`);
+    let newConversation = this.af.database.list('conversations/');
     newConversation.push({
       senderId: this.userService.getUser().id,
       receiverId: receiverId
     });
     newConversation.subscribe((data) => {
-      this.af.database.list(`users/${receiverId}/receivedConversations`).push({
+      this.af.database.object(`users/${receiverId}/conversations/${data[data.length - 1].$key}`).set({
           senderId: this.userService.getUser().id,
-          conversationId: data[data.length - 1].$key
+          receiverId: receiverId
+        }
+      );
+      this.af.database.object(`users/${this.userService.getUser().id}/conversations/${data[data.length - 1].$key}`).set({
+          senderId: this.userService.getUser().id,
+          receiverId: receiverId
         }
       );
     });
