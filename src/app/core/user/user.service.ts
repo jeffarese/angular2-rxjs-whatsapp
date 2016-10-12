@@ -19,6 +19,7 @@ export class UserService {
           auth.auth.email,
           auth.auth.photoURL
         );
+        this.registerUser(this.user);
       } else {
         this.user = null;
       }
@@ -33,4 +34,15 @@ export class UserService {
     });
   }
 
+  private registerUser(user: User) {
+    this.af.database.object(`users/${user.id}`).subscribe((data) => {
+      if (!data.$exists()) {
+        this.af.database.object(`users/${user.id}`).set({
+          name: user.name,
+          email: user.email,
+          avatar: user.avatar
+        });
+      }
+    })
+  }
 }
