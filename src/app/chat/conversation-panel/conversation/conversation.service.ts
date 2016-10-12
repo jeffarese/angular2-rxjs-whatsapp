@@ -28,6 +28,7 @@ export class ConversationService {
         this.conversation$ = this.af.database.list(`/conversations/${user.id}`).map((conversations) => {
           return conversations.map((conversation: any)=> {
             return new Conversation(
+              conversation.$key,
               this.af.database.object(`users/${conversation.receiverId}`),
               this.af.database.list(`messages/${conversation.$key}`));
           })
