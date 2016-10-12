@@ -17,7 +17,6 @@ export class ConversationPanelComponent implements OnInit {
     this.userService.userSource$.subscribe((user)=> {
       if (user) {
         this.conversationService.conversation$.subscribe((conversations) => {
-          console.log(conversations);
           this.conversations = conversations;
         });
       }
