@@ -24,6 +24,7 @@ export class ConversationService {
   getConversationsList() {
     this.userService.userSource$.subscribe((user) => {
       if (user) {
+        console.log(user);
         this.conversation$ = this.af.database.list(`users/${user.id}/conversations`)
           .flatMap((conversations) => {
             return conversations.map((conversation)=> {
@@ -34,28 +35,12 @@ export class ConversationService {
               this.af.database.list(`messages/${conversation.$key}`).subscribe((messages)=> {
                 conversation.messages = messages;
               });
+              console.log(conversation);
               return conversation;
             })
           });
       }
 
-      /*
-       this.conversation$ = this.af.database.list(`users/${user.id}/conversations`)
-       .flatMap((conversations) => {
-       return Observable.forkJoin(
-       conversations.map((conversation) => {
-       return Observable.forkJoin(
-       this.af.database.object(`users/${conversation.receiverId}`),
-       this.af.database.list(`messages/${conversation.$key}`)
-       ).map((data)=> {
-       conversation.destinationUser = data[0];
-       conversation.messages = data[1];
-       return conversation;
-       });
-       })
-       );
-       });
-       });*/
     });
   }
 
